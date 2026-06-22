@@ -1,26 +1,114 @@
 @import "tailwindcss";
 
+/* Dark mode disabled — utilities only apply with a .dark ancestor (never set). */
+@variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Fiesta Signature — brand */
+  --fiesta-primary: #FB8A00;
+  --fiesta-secondary: #262726;
+  --fiesta-tertiary: #f5a623;
+
+  /* Supporting */
+  --fiesta-background: #fafaf8;
+  --fiesta-surface: #ffffff;
+  --fiesta-foreground: #262726;
+  --fiesta-muted: #64748b;
+  --fiesta-border: #e2e8f0;
+  --fiesta-success: #16a34a;
+  --fiesta-error: #dc2626;
+  --fiesta-warning: #d97706;
+
+  /* Semantic aliases */
+  --background: var(--fiesta-background);
+  --foreground: var(--fiesta-foreground);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-primary: var(--fiesta-primary);
+  --color-secondary: var(--fiesta-secondary);
+  --color-tertiary: var(--fiesta-tertiary);
+  --color-background: var(--fiesta-background);
+  --color-surface: var(--fiesta-surface);
+  --color-foreground: var(--fiesta-foreground);
+  --color-muted: var(--fiesta-muted);
+  --color-border: var(--fiesta-border);
+  --color-success: var(--fiesta-success);
+  --color-error: var(--fiesta-error);
+  --color-warning: var(--fiesta-warning);
+  --font-sans: var(--font-plus-jakarta);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  color-scheme: light only;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--fiesta-primary) 20%, transparent);
+  color: var(--fiesta-foreground);
+}
+
+:focus-visible {
+  outline: 2px solid var(--fiesta-primary);
+  outline-offset: 2px;
+}
+
+.hero-carousel .carousel .slide {
+  background: transparent;
+}
+
+.hero-carousel .carousel .slider-wrapper {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.hero-carousel .carousel .control-dots {
+  display: none;
+}
+
+@keyframes clients-marquee-rtl {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes clients-marquee-ltr {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.clients-marquee-track-rtl {
+  animation: clients-marquee-rtl 55s linear infinite;
+}
+
+.clients-marquee-track-ltr {
+  animation: clients-marquee-ltr 55s linear infinite;
+}
+
+.clients-marquee:hover .clients-marquee-track-rtl,
+.clients-marquee:hover .clients-marquee-track-ltr {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clients-marquee-track-rtl,
+  .clients-marquee-track-ltr {
+    animation: none;
+    transform: translateX(0);
+  }
 }
