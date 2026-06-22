@@ -4,7 +4,7 @@ import { Container } from "@/components/ui/Container";
 
 export function FinalCta() {
   return (
-    <section className="relative overflow-hidden bg-backgroundpy-20 lg:py-24">
+    <section className="relative overflow-hidden bg-backgroundpy-20 py-20">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent" />
       <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-tertiary/20 blur-3xl" />
 
@@ -18,7 +18,7 @@ export function FinalCta() {
           <Button
             href="/book-demo"
             size="lg"
-            className="bg-primary text-surface hover:bg-primary/90 shadow-sm shadow-primary/25"
+            className="bg-primary text-surface hover:bg-primary/80 shadow-sm shadow-primary/25"
           >
             Book a Demo
             <ArrowRight className="h-5 w-5" />
@@ -27,7 +27,7 @@ export function FinalCta() {
             href="/register"
             variant="outline"
             size="lg"
-            className="border-primary text-primary hover:bg-primary/10"
+            className="border-primary text-primary hover:bg-primary hover:text-surface"
           >
             Register Your Business
           </Button>

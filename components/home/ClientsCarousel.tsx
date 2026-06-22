@@ -39,7 +39,7 @@ type LogoBadgeProps = {
 function LogoBadge({ src, alt, priority, hidden }: LogoBadgeProps) {
   return (
     <div
-      className="flex h-18 w-18 shrink-0 items-center justify-center rounded-full bg-white shadow-[0_4px_14px_rgba(38,39,38,0.08)] sm:h-18 sm:w-18"
+      className="flex h-18 w-18 shrink-0 items-center justify-center rounded-full bg-white sm:h-18 sm:w-18"
       aria-hidden={hidden || undefined}
     >
       <Image

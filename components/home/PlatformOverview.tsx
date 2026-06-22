@@ -23,7 +23,10 @@ export function PlatformOverview() {
                 key={capability.title}
                 href={capability.href}
                 hover
-                className="relative overflow-hidden border-border/60 bg-surface"
+                className={cn(
+                  "relative overflow-hidden border-border/40 bg-surface",
+                  capability.hoverAccent,
+                )}
               >
                 <div
                   className={cn(

@@ -5,7 +5,7 @@ import { stats, testimonials } from "@/lib/constants/home";
 
 export function SocialProof() {
   return (
-    <section className="bg-surface py-20 lg:py-28">
+    <section className="bg-surface py-20 ">
       <Container>
         <SectionHeader
           badge="Social Proof"
@@ -16,7 +16,7 @@ export function SocialProof() {
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="flex size-28 flex-col items-center justify-center rounded-2xl  bg-background p-3 text-center sm:size-32 lg:size-48"
+              className="flex size-28 flex-col items-center justify-center rounded-2xl   p-3 text-center sm:size-32 lg:size-48"
             >
               <p className="text-2xl font-bold text-primary sm:text-3xl lg:text-4xl xl:text-5xl">
                 {stat.value}

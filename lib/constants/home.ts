@@ -5,6 +5,7 @@ export type PlatformCapability = {
   image: string;
   imageAlt: string;
   gradient: string;
+  hoverAccent: string;
 };
 
 export const platformCapabilities: PlatformCapability[] = [
@@ -16,6 +17,7 @@ export const platformCapabilities: PlatformCapability[] = [
     image: "/images/platformoverview/pos-rms.png",
     imageAlt: "Modern POS and restaurant management system",
     gradient: "from-orange-500/20 via-amber-400/10 to-transparent",
+    hoverAccent: "hover:border-orange-500/20 ",
   },
   {
     title: "Online Ordering",
@@ -25,6 +27,7 @@ export const platformCapabilities: PlatformCapability[] = [
     image: "/images/platformoverview/online-orders.png",
     imageAlt: "Online ordering and branded checkout",
     gradient: "from-violet-500/20 via-purple-400/10 to-transparent",
+    hoverAccent: "hover:border-violet-500/20 ",
   },
   {
     title: "Fleet Management",
@@ -34,6 +37,7 @@ export const platformCapabilities: PlatformCapability[] = [
     image: "/images/platformoverview/fleet-management.png",
     imageAlt: "Delivery fleet management and tracking",
     gradient: "from-sky-500/20 via-blue-400/10 to-transparent",
+    hoverAccent: "hover:border-sky-500/20 ",
   },
   {
     title: "Loyalty & CRM",
@@ -43,6 +47,7 @@ export const platformCapabilities: PlatformCapability[] = [
     image: "/images/platformoverview/loyality-and-crm.png",
     imageAlt: "Loyalty programs and customer relationship management",
     gradient: "from-rose-500/20 via-pink-400/10 to-transparent",
+    hoverAccent: "hover:border-rose-500/20 ",
   },
   {
     title: "Analytics & BI",
@@ -52,6 +57,7 @@ export const platformCapabilities: PlatformCapability[] = [
     image: "/images/platformoverview/analytics.png",
     imageAlt: "Business analytics and reporting dashboard",
     gradient: "from-emerald-500/20 via-teal-400/10 to-transparent",
+    hoverAccent: "hover:border-emerald-500/20 ",
   },
   {
     title: "Payments",
@@ -61,6 +67,7 @@ export const platformCapabilities: PlatformCapability[] = [
     image: "/images/platformoverview/payments.png",
     imageAlt: "Integrated payment processing",
     gradient: "from-amber-500/20 via-yellow-400/10 to-transparent",
+    hoverAccent: "hover:border-amber-500/20 ",
   },
 ];
 
@@ -161,10 +168,10 @@ export const testimonials = [
 ];
 
 export const stats = [
-  { value: "2M+", label: "Orders processed" },
+  { value: "100k+", label: "Orders processed" },
   { value: "30%", label: "Avg. commission saved" },
-  { value: "500+", label: "Businesses onboarded" },
-  { value: "15+", label: "Countries served" },
+  { value: "50+", label: "Businesses onboarded" },
+  { value: "10+", label: "Countries served" },
 ];
 
 export const pricingTeasers = [

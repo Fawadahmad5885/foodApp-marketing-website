@@ -1,6 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { Logo } from "@/components/brand/Logo";
 import { Container } from "@/components/ui/Container";
 import {
   footerCompanyLinks,
@@ -15,7 +15,19 @@ export function Footer() {
       <Container className="py-16">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Logo variant="light" />
+            <Link
+              href="/"
+              className="group inline-flex shrink-0 items-center"
+              aria-label="Fiesta home"
+            >
+              <Image
+                src="/logo/fiestaa-white-logo.png"
+                alt="Fiestaa"
+                width={1000}
+                height={500}
+                className="h-10 w-auto transition-transform group-hover:scale-105"
+              />
+            </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-surface/70">
               Empower every restaurant and food business to own their digital
               future — reduce aggregator dependency and run operations from one
@@ -38,7 +50,7 @@ export function Footer() {
               </a>
               <p className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-tertiary" />
-                Dubai, UAE · London, UK · Karachi, PK
+                Dubai, UAE · London, UK · Lahore, PK
               </p>
             </div>
           </div>
