@@ -74,13 +74,13 @@ export function BusinessTouchpoints() {
             {businessTouchpoints.map((touchpoint) => (
               <SwiperSlide key={touchpoint.label}>
                 <div className="grid gap-4 lg:grid-cols-3 lg:gap-6">
-                  <div className="relative min-h-64 overflow-hidden rounded-3xl bg-white lg:col-span-1 lg:min-h-96">
+                  <div className="relative min-h-64 overflow-hidden  rounded-3xl bg-white lg:col-span-1 lg:min-h-96">
                     <Image
                       src={touchpoint.image}
                       alt={touchpoint.imageAlt}
                       fill
                       className="object-cover object-center"
-                      sizes="(max-width: 1024px) 100vw, 33vw"
+                      sizes="(max-width: 1024px) 100vw, 33vw "
                     />
                   </div>
 
