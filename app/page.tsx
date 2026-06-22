@@ -2,7 +2,7 @@ import { Hero } from "@/components/home/Hero";
 import { TrustBar } from "@/components/home/TrustBar";
 import { Clients } from "@/components/home/Clients";
 import { PlatformOverview } from "@/components/home/PlatformOverview";
-import { HowItWorks } from "@/components/home/HowItWorks";
+import { BusinessTouchpoints } from "@/components/home/BusinessTouchpoints";
 import { BusinessTypes } from "@/components/home/BusinessTypes";
 import { SocialProof } from "@/components/home/SocialProof";
 import { PricingTeaser } from "@/components/home/PricingTeaser";
@@ -15,8 +15,8 @@ export default function Home() {
       <TrustBar />
       <Clients />
       <PlatformOverview />
-      <HowItWorks />
-      <BusinessTypes />
+      <BusinessTouchpoints />
+      {/* <BusinessTypes /> */}
       <SocialProof />
       <PricingTeaser />
       <FinalCta />

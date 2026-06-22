@@ -64,30 +64,48 @@ export const platformCapabilities: PlatformCapability[] = [
   },
 ];
 
-export const howItWorksSteps = [
+export type BusinessTouchpoint = {
+  label: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+};
+
+export const businessTouchpoints: BusinessTouchpoint[] = [
   {
-    step: "01",
-    title: "Register",
+    label: "Branded website & app",
     description:
-      "Create your account and tell us about your business type, stores, and goals.",
+      "Grow your customer base with your own AI-optimised, direct-to-consumer ordering website and mobile app. Built to maximise conversions and keep your brand front and centre, our platforms are fast, intuitive, and SEO-friendly, helping you capture more orders without giving up margin to third-party marketplaces.",
+    image: "/images/platformoverview/Branded-website-&-app.png",
+    imageAlt: "Branded ordering website and mobile app",
   },
   {
-    step: "02",
-    title: "Configure",
+    label: "Loyalty & retention",
     description:
-      "Set up menus, branding, delivery zones, and connect your payment gateway.",
+      "Keep customers coming back with automated, personalised marketing campaigns that run while you focus on service. Powered by AI, our loyalty tools deliver tailored rewards, points programs, and special offers at just the right moment to drive repeat purchases and build long-term customer relationships.",
+    image: "/images/platformoverview/loyality-and-crm.png",
+    imageAlt: "Loyalty and retention tools",
   },
   {
-    step: "03",
-    title: "Launch",
+    label: "Automated upsell",
     description:
-      "Go live with your branded ordering channel, POS, and fleet tools.",
+      "Boost your average order value effortlessly with intelligent add-on suggestions driven by customer purchase history and real-time ordering behaviour. Whether it's recommending sides, drinks, or desserts, Fiesta helps you sell more without adding pressure to your staff.",
+    image: "/images/platformoverview/analytics.png",
+    imageAlt: "Automated upsell recommendations",
   },
   {
-    step: "04",
-    title: "Grow",
+    label: "Delivery network",
     description:
-      "Drive repeat orders with loyalty, CRM campaigns, and data-driven insights.",
+      "No drivers? No problem. Instantly expand your delivery radius with our fully integrated partners like Uber Direct, Stuart, and others. Orders are automatically dispatched, tracked, and delivered under your brand, so you keep the customer relationship while offering a fast, reliable delivery experience.",
+    image: "/images/platformoverview/fleet-management.png",
+    imageAlt: "Integrated delivery network dashboard",
+  },
+  {
+    label: "Marketing Tools",
+    description:
+      "Outrank your competitors and get discovered by more customers with our proven, data-driven marketing toolkit. From SEO optimisation and Google Business integration to social media campaigns, every feature is designed to maximise your online visibility and help you outpace the competition.",
+    image: "/images/platformoverview/loyality-and-crm.png",
+    imageAlt: "Marketing tools and campaigns",
   },
 ];
 
