@@ -18,6 +18,9 @@ const CLIENT_LOGO_FILES = [
   "15.jpg",
   "16.jpg",
   "17.jpg",
+  "18.jpg",
+  "19.jpg",
+  "20.jpg",
 
 ] as const;
 
