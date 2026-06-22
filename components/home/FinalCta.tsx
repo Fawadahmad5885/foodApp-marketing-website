@@ -16,7 +16,7 @@ export function FinalCta() {
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Button
-            href="/book-demo"
+            href="/contact"
             size="lg"
             className="bg-primary text-surface hover:bg-primary/80 shadow-sm shadow-primary/25"
           >
@@ -24,7 +24,7 @@ export function FinalCta() {
             <ArrowRight className="h-5 w-5" />
           </Button>
           <Button
-            href="/register"
+            href="/contact"
             variant="outline"
             size="lg"
             className="border-primary text-primary hover:bg-primary hover:text-surface"

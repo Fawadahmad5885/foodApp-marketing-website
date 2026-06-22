@@ -87,14 +87,14 @@ export function Header() {
 
           <div className="hidden items-center gap-3 lg:flex">
             <Button
-              href="/register"
+              href="/contact"
               variant="ghost"
               size="sm"
               className=" hover:bg-white/10 "
             >
               Register
             </Button>
-            <Button href="/book-demo" size="sm">
+            <Button href="/contact" size="sm">
               Book a Demo
             </Button>
           </div>
@@ -149,13 +149,13 @@ export function Header() {
             )}
             <div className="mt-4 flex flex-col gap-2 border-t border-white/10 pt-4">
               <Button
-                href="/register"
+                href="/contact"
                 variant="outline"
                 className="w-full border-surface/30 text-surface hover:bg-white/10"
               >
                 Register
               </Button>
-              <Button href="/book-demo" className="w-full">
+              <Button href="/contact" className="w-full">
                 Book a Demo
               </Button>
             </div>

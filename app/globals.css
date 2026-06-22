@@ -56,9 +56,39 @@ body {
   color: var(--fiesta-foreground);
 }
 
-:focus-visible {
-  outline: 2px solid var(--fiesta-primary);
-  outline-offset: 2px;
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--fiesta-primary);
+    outline-offset: 2px;
+  }
+
+  :is(input, textarea, select):focus,
+  :is(input, textarea, select):focus-visible,
+  .field-control:focus,
+  .field-control:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.field-shell {
+  border: 1px solid var(--fiesta-border);
+  transition: border-color 0.2s ease;
+}
+
+.field-shell:focus-within {
+  border-color: var(--fiesta-primary);
+}
+
+.field-control {
+  display: block;
+  width: 100%;
+  border: 0;
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .hero-carousel .carousel .slide {
