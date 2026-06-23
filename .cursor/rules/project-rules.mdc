@@ -1,0 +1,62 @@
+---
+alwaysApply: true
+---
+---
+
+description: Rules for Blink-style food delivery marketing website
+globs:
+alwaysApply: true
+-----------------
+
+You are working on a Next.js food delivery marketing website.
+
+This repository contains ONLY the marketing website.
+
+Goals:
+
+* Increase conversions
+* Improve SEO
+* Maintain design consistency
+* Keep code production-ready
+
+Before making changes:
+
+* Read relevant files first.
+* Understand current implementation.
+* Follow existing design patterns.
+
+When editing UI:
+
+* Mobile-first approach.
+* Responsive layouts.
+* Consistent spacing.
+* Modern SaaS-style design.
+* Clean component structure.
+
+When editing content:
+
+* Focus on benefits.
+* Keep messaging concise.
+* Use conversion-focused language.
+
+Never:
+
+* Run npm run dev.
+* Run npm run build.
+* Run pnpm dev.
+* Run pnpm build.
+* Run yarn dev.
+* Run yarn build.
+* Launch localhost.
+* Start development servers.
+* Execute terminal commands unless explicitly instructed.
+
+Always:
+
+* Show plan first.
+* Make smallest safe change.
+* Explain modified files afterward.
+
+If requirements are unclear:
+
+Ask one focused question.

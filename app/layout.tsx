@@ -46,8 +46,12 @@ export default function RootLayout({
       lang="en"
       className={`${plusJakarta.variable} light h-full antialiased`}
       style={{ colorScheme: "light" }}
+      suppressHydrationWarning
     >
-      <body className="flex min-h-full flex-col bg-white font-sans text-foreground">
+      <body
+        className="flex min-h-full flex-col bg-white font-sans text-foreground"
+        suppressHydrationWarning
+      >
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

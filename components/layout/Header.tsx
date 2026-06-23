@@ -12,9 +12,15 @@ import { cn } from "@/lib/utils";
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+
+  const closeMobile = () => {
+    setMobileOpen(false);
+    setMobileExpanded(null);
+  };
 
   return (
-    <header className="sticky top-0 z-50 border-b bg-white border-gray-200 ">
+    <header className="sticky top-0 isolate z-50 border-b border-border bg-white">
       <Container as="div">
         <div className="flex h-16 items-center justify-between lg:h-[4.5rem]">
           <Link
@@ -37,7 +43,7 @@ export function Header() {
               item.children ? (
                 <div
                   key={item.label}
-                  className="relative"
+                  className="relative z-50"
                   onMouseEnter={() => setOpenDropdown(item.label)}
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
@@ -51,15 +57,15 @@ export function Header() {
                   </button>
 
                   {openDropdown === item.label && (
-                    <div className="absolute left-0 top-full pt-2">
-                      <div className="w-80 rounded-2xl border border-border p-2 shadow-2xl shadow-black/20">
+                    <div className="absolute left-0 top-full z-50 pt-2">
+                      <div className="w-80 rounded-2xl border border-border bg-surface p-2 shadow-2xl shadow-black/20">
                         {item.children.map((link) => (
                           <Link
                             key={link.href}
                             href={link.href}
                             className="block rounded-xl px-4 py-3 transition-colors hover:bg-background"
                           >
-                            <span className="block text-sm font-semibold ">
+                            <span className="block text-sm font-semibold text-foreground">
                               {link.label}
                             </span>
                             {link.description && (
@@ -101,7 +107,7 @@ export function Header() {
 
           <button
             type="button"
-            className="rounded-lg p-2 text-surface lg:hidden"
+            className="rounded-lg text-foreground transition-colors hover:bg-foreground/5 lg:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
@@ -111,48 +117,86 @@ export function Header() {
         </div>
       </Container>
 
+      {mobileOpen && (
+        <button
+          type="button"
+          className="fixed inset-0 top-16 z-40 bg-black/20 lg:hidden"
+          aria-label="Close menu"
+          onClick={closeMobile}
+        />
+      )}
+
       <div
         className={cn(
-          "overflow-hidden border-t border-white/10 bg-secondary transition-all duration-300 lg:hidden",
-          mobileOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0",
+          "relative z-50 overflow-hidden border-t border-border bg-white shadow-lg transition-all duration-300 lg:hidden",
+          mobileOpen ? "max-h-[calc(100dvh-4rem)] opacity-100" : "max-h-0 opacity-0",
         )}
       >
-        <Container className="py-4">
+        <Container className="overflow-y-auto py-4">
           <nav className="flex flex-col gap-1" aria-label="Mobile">
             {primaryNav.map((item) =>
               item.children ? (
-                <div key={item.label} className="py-2">
-                  <p className="px-3 text-xs font-semibold uppercase tracking-wider text-surface/50">
+                <div key={item.label} className="rounded-lg">
+                  <button
+                    type="button"
+                    className="flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-foreground/5"
+                    onClick={() =>
+                      setMobileExpanded((current) =>
+                        current === item.label ? null : item.label,
+                      )
+                    }
+                    aria-expanded={mobileExpanded === item.label}
+                  >
                     {item.label}
-                  </p>
-                  {item.children.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className="block rounded-lg px-3 py-2.5 text-sm text-surface/90 hover:bg-white/10"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
+                    <ChevronDown
+                      className={cn(
+                        "h-4 w-4 text-muted transition-transform",
+                        mobileExpanded === item.label && "rotate-180",
+                      )}
+                    />
+                  </button>
+                  <div
+                    className={cn(
+                      "overflow-hidden transition-all duration-200",
+                      mobileExpanded === item.label
+                        ? "max-h-[60rem] opacity-100"
+                        : "max-h-0 opacity-0",
+                    )}
+                  >
+                    <div className="space-y-0.5 pb-2 pl-2">
+                      {item.children.map((link) => (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          className="block rounded-lg px-3 py-2.5 transition-colors hover:bg-foreground/5"
+                          onClick={closeMobile}
+                        >
+                          <span className="block text-sm font-medium text-foreground">
+                            {link.label}
+                          </span>
+                          {link.description && (
+                            <span className="mt-0.5 block text-xs text-muted">
+                              {link.description}
+                            </span>
+                          )}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               ) : (
                 <Link
                   key={item.label}
                   href={item.href!}
-                  className="rounded-lg px-3 py-2.5 text-sm font-medium text-surface hover:bg-white/10"
-                  onClick={() => setMobileOpen(false)}
+                  className="rounded-lg px-3 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-foreground/5"
+                  onClick={closeMobile}
                 >
                   {item.label}
                 </Link>
               ),
             )}
-            <div className="mt-4 flex flex-col gap-2 border-t border-white/10 pt-4">
-              <Button
-                href="/contact"
-                variant="outline"
-                className="w-full border-surface/30 text-surface hover:bg-white/10"
-              >
+            <div className="mt-4 flex flex-col gap-2 border-t border-border pt-4">
+              <Button href="/contact" variant="ghost" className="w-full">
                 Register
               </Button>
               <Button href="/contact" className="w-full">
