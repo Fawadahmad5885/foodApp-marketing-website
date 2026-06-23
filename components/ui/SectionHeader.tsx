@@ -25,7 +25,7 @@ export function SectionHeader({
       )}
     >
       {badge && (
-        <Badge variant="primary" className="mb-4">
+        <Badge variant="tertiary" className="mb-4">
           {badge}
         </Badge>
       )}

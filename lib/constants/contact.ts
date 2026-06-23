@@ -35,7 +35,7 @@ export const inquiryTypes: InquiryType[] = [
 ];
 
 export const contactDetails = {
-  email: "hello@fiesta.io",
+  email: "hello@fiestaa.io",
   phone: "+971 800 123 45",
   phoneHref: "tel:+97180012345",
   locations: "Dubai, UAE · London, UK · Lahore, PK",

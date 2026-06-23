@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { SelectField, TextAreaField, TextField } from "@/components/ui/Field";
+import { SelectField } from "@/components/ui/SelectField";
+import { TextAreaField, TextField } from "@/components/ui/Field";
 import { businessTypes, countries } from "@/lib/constants/contact";
 
 type FormState = {
@@ -76,7 +77,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+    <form onSubmit={handleSubmit} className="grid gap-5 sm:grid-cols-2" noValidate>
       <TextField
         id="contact-name"
         name="name"
@@ -115,19 +116,12 @@ export function ContactForm() {
         id="contact-country"
         name="country"
         label="Country"
+        placeholder="Select country"
         value={form.country}
-        onChange={(event) => updateField("country", event.target.value)}
+        onChange={(value) => updateField("country", value)}
+        options={countries}
         required
-      >
-        <option value="" disabled>
-          Select country
-        </option>
-        {countries.map((country) => (
-          <option key={country.value} value={country.value}>
-            {country.label}
-          </option>
-        ))}
-      </SelectField>
+      />
 
       <TextField
         id="contact-business-name"
@@ -145,27 +139,24 @@ export function ContactForm() {
         name="businessType"
         label="Business type"
         value={form.businessType}
-        onChange={(event) => updateField("businessType", event.target.value)}
-        required
-      >
-        {businessTypes.map((type) => (
-          <option key={type.value} value={type.value}>
-            {type.label}
-          </option>
-        ))}
-      </SelectField>
-
-      <TextAreaField
-        id="contact-message"
-        name="message"
-        label="Message"
-        placeholder="How can we help you?"
-        value={form.message}
-        onChange={(event) => updateField("message", event.target.value)}
+        onChange={(value) => updateField("businessType", value)}
+        options={businessTypes}
         required
       />
 
-      <label className="flex items-start gap-3 text-sm leading-relaxed text-muted">
+      <div className="sm:col-span-2">
+        <TextAreaField
+          id="contact-message"
+          name="message"
+          label="Message"
+          placeholder="How can we help you?"
+          value={form.message}
+          onChange={(event) => updateField("message", event.target.value)}
+          required
+        />
+      </div>
+
+      <label className="flex items-start gap-3 text-sm leading-relaxed text-muted sm:col-span-2">
         <input
           type="checkbox"
           name="consent"
@@ -184,7 +175,7 @@ export function ContactForm() {
         </span>
       </label>
 
-      <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col gap-3 pt-1 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-xs text-muted">
           Looking for a product demo?{" "}
           <Link href="/book-demo" className="font-medium text-primary hover:underline">

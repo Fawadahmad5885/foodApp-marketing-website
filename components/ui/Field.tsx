@@ -1,4 +1,3 @@
-import { ChevronDown } from "lucide-react";
 import { Label } from "@/components/ui/Label";
 import { fieldControlClass } from "@/components/ui/fieldStyles";
 import { cn } from "@/lib/utils";
@@ -66,43 +65,6 @@ export function TextAreaField({
           id={id}
           className={cn(fieldControlClass, "min-h-[140px] resize-y px-4 py-3", className)}
           {...props}
-        />
-      </FieldShell>
-    </div>
-  );
-}
-
-type SelectFieldProps = {
-  label: string;
-  id: string;
-  required?: boolean;
-  children: React.ReactNode;
-} & React.SelectHTMLAttributes<HTMLSelectElement>;
-
-export function SelectField({
-  label,
-  id,
-  required,
-  className,
-  children,
-  ...props
-}: SelectFieldProps) {
-  return (
-    <div className="space-y-2">
-      <Label htmlFor={id} required={required}>
-        {label}
-      </Label>
-      <FieldShell className="relative">
-        <select
-          id={id}
-          className={cn(fieldControlClass, "h-11 appearance-none px-4 pr-10", className)}
-          {...props}
-        >
-          {children}
-        </select>
-        <ChevronDown
-          className="pointer-events-none absolute top-1/2 right-3 h-4 w-4 -translate-y-1/2 text-muted"
-          aria-hidden
         />
       </FieldShell>
     </div>

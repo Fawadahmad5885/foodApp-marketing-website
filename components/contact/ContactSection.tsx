@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { ContactForm } from "@/components/contact/ContactForm";
@@ -34,36 +33,24 @@ const contactChannels = [
 
 export function ContactSection() {
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] overflow-hidden">
-      <Image
-        src="/hero/slide-2.png"
-        alt=""
-        fill
-        priority
-        className="object-cover"
-        sizes="100vw"
-      />
+    <section className="relative min-h-[calc(100vh-4rem)] overflow-hidden bg-surface">
       <div
-        className="absolute inset-0 bg-linear-to-br from-secondary/95 via-secondary/85 to-secondary/75"
-        aria-hidden
-      />
-      <div
-        className="absolute -right-24 top-1/4 h-72 w-72 rounded-full bg-primary/20 blur-3xl"
+        className="absolute -right-24 top-1/4 h-72 w-72 rounded-full bg-primary/10 blur-3xl"
         aria-hidden
       />
 
       <Container className="relative py-16 lg:py-24">
         <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
-          <div className="text-surface">
-            <Badge variant="tertiary" className="mb-6">
+          <div>
+            <Badge variant="tertiary" className="mb-4">
               Contact
             </Badge>
 
-            <h1 className="text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-[3.25rem]">
+            <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-[3.25rem]">
               Let&apos;s talk about your business
             </h1>
 
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-surface/80">
+            <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted">
               Have a question about Fiesta, pricing, or partnerships? Send us a
               message and our team will get back to you shortly.
             </p>
@@ -73,10 +60,10 @@ export function ContactSection() {
                 const Icon = channel.icon;
                 const content = (
                   <>
-                    <span className="block text-xs font-semibold uppercase tracking-wider text-tertiary">
+                    <span className="block text-xs font-semibold uppercase tracking-wider text-primary">
                       {channel.label}
                     </span>
-                    <span className="mt-1 block text-sm leading-relaxed text-surface/90">
+                    <span className="mt-1 block text-sm leading-relaxed text-foreground">
                       {channel.value}
                     </span>
                   </>
@@ -84,13 +71,13 @@ export function ContactSection() {
 
                 return (
                   <li key={channel.label} className="flex gap-4">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10">
-                      <Icon className="h-5 w-5 text-tertiary" />
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-foreground">
+                      <Icon className="h-5 w-5 text-primary" />
                     </div>
                     {"href" in channel && channel.href ? (
                       <a
                         href={channel.href}
-                        className="transition-colors hover:text-white"
+                        className="transition-colors hover:text-primary"
                       >
                         {content}
                       </a>
@@ -102,11 +89,11 @@ export function ContactSection() {
               })}
             </ul>
 
-            <p className="mt-10 text-sm text-surface/60">
+            <p className="mt-10 text-sm text-muted">
               Prefer a guided walkthrough?{" "}
               <Link
                 href="/book-demo"
-                className="font-semibold text-tertiary transition-colors hover:text-white"
+                className="font-semibold text-primary transition-colors hover:text-primary/80"
               >
                 Book a demo
               </Link>{" "}
@@ -114,7 +101,7 @@ export function ContactSection() {
             </p>
           </div>
 
-          <Card className="border-white/20 bg-surface/95 p-6 shadow-2xl shadow-black/20 backdrop-blur-sm sm:p-8">
+          <Card className="bg-background p-6 sm:p-8">
             <div className="mb-6">
               <h2 className="text-xl font-semibold text-foreground">
                 Send us a message
